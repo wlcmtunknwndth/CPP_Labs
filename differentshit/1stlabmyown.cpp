@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <conio.h>
+#include <cstdio>
 using namespace std;
 
 struct Thing
@@ -121,10 +122,8 @@ struct List
 			}
 			tmp3=tmp3->next;	
 		}
-		Thing* next=new Thing;
-		next=tmp3->next;
-		delete tmp3;
-		prev->next=next;
+		tmp3=tmp3->next;
+		prev->next=tmp3;
 		return 0;
 	}
 
@@ -197,8 +196,8 @@ struct List
 
 		if (AddAfterWhat == 0)
 		{
-			head=node;
-			head->next=tmp5;
+			node->next=head->next;
+			head->next=node;
 			return 0;
 		}
 		
@@ -220,7 +219,7 @@ struct List
 	
 	int ViborFunktsii()
 	{
-		cout << "Spisok funktsiy:\n" << "1. Create & Push to head\n" << "2. Create & Push to tail\n" << "3. Print all\n" << "4. Delete node\n" << "5. Create & push before smth\n" << "6. Create & push after smth\n" << "7. quit\n";
+		cout << "Spisok funktsiy:\n" << "1. Create & Push to head\n" << "2. Create & Push to tail\n" << "3. Print all\n" << "4. Delete node\n" << "5. Create & push after smth\n" << "6. Create & push before smth\n" << "7. quit\n";
 		int choice;
 		cin >> choice;
 		switch (choice)
@@ -326,6 +325,7 @@ int main()
 	// lst->printAll();
 	// lst->AddAfter(lst->createNode(), 1);
 	// lst->printAll();
+	// getch();
 	// delete lst;
 	// return 0;
 
@@ -334,6 +334,7 @@ int main()
 	cout << "\nDvusvyazniy spisok by Petrov Artem\n";
 	List* lst=new List;
 	lst->ViborFunktsii();
+	getch();
 	delete lst;
 	return 0;
 }
