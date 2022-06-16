@@ -368,6 +368,7 @@ int main()
     b.print();
 
     A.JacobiMethod(b);
+    getch();
     return 0;
 }
 
@@ -401,7 +402,6 @@ vect matr::JacobiMethod(vect &b)
     g.print();
     for(int i=0; i < 10000; i++)
     {    
-        if ((A*x) == b) break;
         cout << "Itteration" << i << endl;
         x_next = B * x + g;
         cout << "\nb=\n";
@@ -410,12 +410,12 @@ vect matr::JacobiMethod(vect &b)
         // cout << "\nA*x= \n";
         cout << "\nx=\n";
         x.print();
-        
     }
     cout << "\nA*x=" << endl;
     vect res=A*x;
     res.print();
     cout << "\nb=\n";
     b.print();
+
     return x;
 }
